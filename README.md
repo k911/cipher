@@ -10,8 +10,8 @@ DOCUMENTATION:
 
 KEYS
 - Standart RSA Key Pair structure (http://en.wikipedia.org/wiki/RSA_%28cryptosystem%29#Key_generation)
-Key Public = [e,n];
-Key Private = [d,n];
+- Key Public = [e,n];
+- Key Private = [d,n];
 
 FUNCTIONS
 - txt2hex() : converts ASCII chars to hex two-digits number (e.g. "l" => "4c", "rsa" => "525341");
