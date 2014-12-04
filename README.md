@@ -8,12 +8,12 @@ ATTENTION: [JavaScript] cipher.js library uses bigInt.js library due to support 
 
 DOCUMENTATION:
 
-1. Keys;
-Standart RSA Key Pair structure (http://en.wikipedia.org/wiki/RSA_%28cryptosystem%29#Key_generation)
+KEYS
+- Standart RSA Key Pair structure (http://en.wikipedia.org/wiki/RSA_%28cryptosystem%29#Key_generation)
 Key Public = [e,n];
 Key Private = [d,n];
 
-2. Functions()
+FUNCTIONS
 - txt2hex() : converts ASCII chars to hex two-digits number (e.g. "l" => "4c", "rsa" => "525341");
 Warning: this function supports only chars starting from: " "(space)[char decimal value = 32]
 - hex2txt() : convert hex string back to ASCII text; (e.g. "4c" => "l", "525341" => "rsa")
