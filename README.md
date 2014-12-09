@@ -3,8 +3,10 @@ Cipher is simple rsa text encryption and decryption (mini) library, currently av
 I've created this for personal use: to encrypt data on client side, then safely send to server by ajax and decode it.
 You can use that for example for submiting forms using ajax.
 
-ATTENTION: [JavaScript] cipher.js library uses bigInt.js library due to support of big int values 
-(RSA is safe using >1024bit key), whereas js max int is 52bit.
+ATTENTION: [JavaScript] cipher.js library uses bigInt.js library due to support of big int values.
+As we all know, RSA keys could be many times bigger than js max int (52bit).
+Link to library: http://leemon.com/crypto/BigInt.js
+Official site: http://leemon.com/crypto/BigInt.html
 
 DOCUMENTATION:
 
