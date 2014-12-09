@@ -1,6 +1,6 @@
 Cipher is simple rsa text encryption and decryption (mini) library, currently available in javascript and php.
 
-I've created this for personal use: to encrypt data on client side and safely send it to server by ajax.
+I've created this for personal use: to encrypt data on client side, then safely send to server by ajax and decode it.
 You can use that for example for submiting forms using ajax.
 
 ATTENTION: [JavaScript] cipher.js library uses bigInt.js library due to support of big int values 
