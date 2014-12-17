@@ -1,22 +1,27 @@
-/**  RSA Text Encryption  **/
-/*   JAVA SCRIPT LIBRARY   */
-/*   USES:                 */
-/*     bigInt.js           */
-/*   VERSION:              */
-/*     04/12/2014          */
-/**  K911 BLOG (C) 2014   **/
+/**  	RSA Text Encryption  	**/
+/**   	JAVASCRIPT  LIBRARY   	**/
+//
+// 	REQUIRED LIBRARIES:
+//		- BigInt.js (http://www.leemon.com/crypto/BigInt.js)
+//     
+//	CURRENT VERSION:             		
+//		0.9.1 (17/12/2014)  
+//
+//	CHANGELOG:			   		
+//	* v0.9.1 (17/12/2014):
+//  		- simplified code
+//  	* v0.9.0 (04/12/2014):
+//		- initial version for js
+//
+/**  	K911 BLOG (C) 2014   	**/
 
 var Cipher = function(o) {
 	"use strict";
 	var c = this;
 	//key 1024 bits can encode 127 long hash
-	c.key_public = ['0', '0'];
-	c.key_private = ['0', '0'];
-
-	if ( typeof o.key_pubic != undefined)
-		c.key_public = o.key_public;
-	if ( typeof o.key_private != undefined)
-		c.key_private = o.key_private;
+	c.key_public = o.key_public;
+	c.key_private = o.key_private;
+	c.return_bigint = false;
 
 	/* Convert text to string of numbers */
 	/* IN:	                      string */
@@ -44,16 +49,15 @@ var Cipher = function(o) {
 	/* IN:	             string */
 	/* OUT:	    hash(bigint,16) */
 	c.encrypt = function(string) {
-		var key, result;
-		key = c.key_public;
-		if (key[0] == '0' || key[1] == '0') {
-			result = 0;
+		var result = 0;
+		if (c.key_public === undefined)
 			console.log('key_public is missing or/and broken');
-		} else {
+		else {
 			//1 is added to prevent being 0 on top (eg. if first letter is A txt2Int returns 065)
 			result = '1' + c.txt2hex(string);
-			result = powMod(str2bigInt(result, 16), str2bigInt(key[0], 16), str2bigInt(key[1], 16));
-			result = bigInt2str(result, 16);
+			result = powMod(str2bigInt(result, 16), str2bigInt(c.key_public[0], 16), str2bigInt(c.key_public[1], 16));
+			if (!c.return_bigint)
+				result = bigInt2str(result, 16);
 		}
 		return result;
 		//hash
@@ -63,13 +67,13 @@ var Cipher = function(o) {
 	/* IN:	         hash(bigint,16) */
 	/* OUT:	                  string */
 	c.decrypt = function(hash) {
-		var key, result;
-		key = c.key_private;
-		if (key[0] == '0' || key[1] == '0') {
-			result = 0;
+		var result = 0;
+		if (c.key_private === undefined)
 			console.log('key_private is missing or/and broken');
-		} else {
-			result = powMod(str2bigInt(hash, 16), str2bigInt(key[0], 16), str2bigInt(key[1], 16));
+		else {
+			if (!c.return_bigint)
+				hash = str2bigInt(hash, 16);
+			result = powMod(hash, str2bigInt(c.key_private[0], 16), str2bigInt(c.key_private[1], 16));
 			//remove 1 added by encrypt function
 			result = bigInt2str(result, 16).substr(1);
 			result = c.hex2txt(result);
