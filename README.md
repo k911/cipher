@@ -8,8 +8,6 @@ As we all know, RSA keys could be many times bigger than js max int (52bit).
 Link to library: http://leemon.com/crypto/BigInt.js
 Official site: http://leemon.com/crypto/BigInt.html
 
-DOCUMENTATION:
-
 KEYS
 - Standart RSA Key Pair structure (http://en.wikipedia.org/wiki/RSA_%28cryptosystem%29#Key_generation)
 - Key Public = [e,n];
@@ -21,3 +19,5 @@ Warning: this function supports only chars starting from: " "(space)[char decima
 - hex2txt() : convert hex string back to ASCII text; (e.g. "4c" => "l", "525341" => "rsa")
 - encrypt() : encrypts string (ASCII text) by RSA using public key and returns hexadecimal hash;
 - decrypt() : decrypts hexadecimal hash by RSA using private key and returns string (ASCII text);
+
+CHANGELOG IN LIBRARIES
