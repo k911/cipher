@@ -1,10 +1,16 @@
 <?
 
-/**  RSA Text Encryption  **/
-/*   P   H   P   LIBRARY   */
-/*   VERSION:              */
-/*     04/12/2014          */
-/**  K911 BLOG (C) 2014   **/
+/**  	RSA Text Encryption  	**/
+/**   	P	H	P   LIBRARY   	**/
+//
+//	CURRENT VERSION:             		
+//		0.9.0 (04/12/2014)  
+//
+//	CHANGELOG:
+//	* v0.9.0 (04/12/2014):
+//		- initial version for php
+//
+/**  	K911 BLOG (C) 2014   	**/
 
 class Cipher {
 
